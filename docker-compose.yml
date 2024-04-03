@@ -1,0 +1,12 @@
+version: '3'
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: wordpress.c9864yeam5m4.us-east-1.rds.amazonaws.com
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: wordpress
