@@ -149,7 +149,9 @@ services:
       WORDPRESS_DB_HOST:
       WORDPRESS_DB_NAME: 
       WORDPRESS_DB_USER: 
-      WORDPRESS_DB_PASSWORD: 
+      WORDPRESS_DB_PASSWORD:
+     volumes:
+      - /mnt/efs/:/var/www/html
 EOF
 
 cd /mnt/efs
