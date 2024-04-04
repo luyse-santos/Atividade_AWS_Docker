@@ -52,7 +52,7 @@ para versionamento;
 - Selecione 2 para as AZs e para as sub-redes públicas e privadas.
 - Em gateways Nat > em uma AZ.
 - Clique em criar vpc.
-## 2.Crindo grupo de segirança
+## 2.Criando grupo de segurança
 - Vá para ec2
 - No menu esquerdo em rede e segurança ,selecione Security Groups
 - No canto superior da tela clique em criar grupo de segurança
@@ -66,4 +66,39 @@ para versionamento;
 | https             | TCP       | 443                  | 0.0.0.0/0  | HTTPS     |
 | NFS               | TCP       | 2049                 | 0.0.0.0/0  | NFS       |
 | MYSQL/Aurora      | TCP       | 3306                 | próprio SG | DB        |
-  
+
+## 3.Criando o RDS
+- na aba de pesquisa da aws pesquise por RDS
+- no menu esquerdo selecione Banco de dados > criar banco de dados
+- em metodo de criação de dados selecione a criação padrão
+- em opção de mecanismo selecione o MYSQL
+- modelos escolha o nivel gratuito
+- nas configurações de credenciais:
+   - crie um nome de usuário orincipal
+   - selecione self managed
+   - crie uma master password e confirme
+- desabilite a escalabilidade automática do armazenamento
+- em conectividade:
+   - selecione Não se conectar a um recurso de computação do EC2
+   - escolha a vpc criada anteriormente
+   - para o acesso ao público escolha não
+   - emgupo de segurança selecione o security group criado anteriormente
+- para a autenticação do banco de dados selecioe autenticação de senha 
+- configurações adicionais:
+   - em Opções de banco de dados crie um nome
+   - desabilite o backup e a criptografia
+- (nas demais configurações deixe padrão) 
+- crie o banco de dados
+## 4. criando um modelo de execução 
+- em instacias na ec2
+- clique em modelos de execução > criar modelo de execução 
+- nomeie o modelo de execução 
+- selecione a opção Orientação sobre o Auto Scaling
+ - Imagens de aplicação - Amazon Linux 2
+ - Tipo de instância - t2.micro
+ - escolha um par de chave ou crie um
+- Configurações de rede
+ - em sub-rede selecione não incluir no modelo de execução
+  -  em Firewall > Selecione o grupo de segurança criado anteriomente
+    - em detalhes avançados
+   - vá até dados do usuário e insira o script:
