@@ -97,7 +97,12 @@ para versionamento;
      
    **Nas demais configurações deixe padrão** 
 - Clique em `criar banco de dados`
-## 4.Criar um modelo de execução 
+## 4.Criando sistema de arquivos EFS
+  - Na console aws pesquise por `EFS`
+  - No menu esquerdo clique em `Sistema de arquivos` > `Criar sistema de arquivos`
+  - Selecione a `VPC criada`
+  - clique em `Criar`
+## 5.Criar um modelo de execução 
 - Em `Instacias` na ec2
 - Clique em `Modelos de execução` > `Criar modelo de execução` 
 - Nomeie o modelo de execução 
@@ -152,7 +157,7 @@ docker-compose up -d
 ```
   **Nas demais configurações deixe padrão**
 - Clique em `Criar modelo de execução`
-## 5.Criar um grupo de destino
+## 6.Criar um grupo de destino
 - Vá para `balanceamento de carga` e clique em `Grupos de destino`> `Criar grupo de destino`
 - Em Configuração básica:
    - Para o tipos de destino escolha `Instâncias`
@@ -161,7 +166,7 @@ docker-compose up -d
    - 
   **Nas demais configurações deixe padrão** 
 - Clique em "Próximo" e depois em "Criar grupo de destino"
-## 6.Criar o Balanceador de carga
+## 7.Criar o Balanceador de carga
 - Ainda em balanceamento de carga vá para "Load balancers" > "criar Load balancers"
 - Tipos de load balancer:
    - Application Load Balancer criar
@@ -176,7 +181,7 @@ docker-compose up -d
       
    **Nas demais configurações deixe padrão** 
 - Clique em `criar Load balancer`
-## 7.Criar Grupo Auto Scaling
+## 8.Criar Grupo Auto Scaling
 - Ainda em ec2 , no menu esquerdo vá para Auto Scaling
 - Clique em criar grupo de auto scaling
 - Crie um Nome para o grupo do Auto Scaling
@@ -201,7 +206,7 @@ docker-compose up -d
      
    **Nas demais configurações deixe padrão**
 - Clique em `Próximo` para as demais páginas e depois em `Criar grupo de auto scaling`
-## 8.Acessar o WordPress 
+## 9.Acessar o WordPress 
 - Vá até o Load balancer e selecione `LB criado`
 - Copie o `Nome do DNS`
 - Cole no navegador e acesse o WordPress 
