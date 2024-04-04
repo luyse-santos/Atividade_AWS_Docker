@@ -31,6 +31,8 @@ services:
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: admin
       WORDPRESS_DB_PASSWORD: wordpress
+    volumes:
+      - /mnt/efs/:/var/www/html
 EOF
 
 cd /mnt/efs
